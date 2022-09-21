@@ -1,19 +1,20 @@
 package cn.cutemc.EventHandler.Listener.Msg;
 
-import cn.cutemc.Command.Command;
-import cn.cutemc.MCServerAssistant;
 import cn.cutemc.Utils.CommandUtils;
 import net.mamoe.mirai.event.events.GroupMessageEvent;
-import net.mamoe.mirai.message.data.MessageSource;
 
 import java.lang.reflect.InvocationTargetException;
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
 import java.util.Objects;
 
 public class GroupMsg {
 
-    public GroupMsg(GroupMessageEvent event, List<Long> group) {
-        if (!group.contains(event.getGroup().getId())) return;
+    public GroupMsg(GroupMessageEvent event, Map<Long, String> groupMap) {
+
+        ArrayList<Long> groupList = new ArrayList<>(groupMap.keySet());
+
+        if (!groupList.contains(event.getGroup().getId())) return;
 
         //Get msg
         String msg = Objects.requireNonNull(event.getMessage().contentToString());

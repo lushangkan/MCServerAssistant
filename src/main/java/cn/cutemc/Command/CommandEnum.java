@@ -1,11 +1,13 @@
 package cn.cutemc.Command;
 
 import cn.cutemc.Command.SubCommand.CommandHelp;
+import cn.cutemc.Command.SubCommand.CommandStatus;
 
 public enum CommandEnum {
 
     //Command
     HELP("help", CommandHelp.class),
+    STATUS("status", CommandStatus.class),
     ;
 
     private final String command;
